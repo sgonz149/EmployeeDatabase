@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "MockEmployeeDB", "MockEmployeeDB\MockEmployeeDB.ssmssqlproj", "{D812BF7C-6754-495F-9118-A32B3E597855}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D812BF7C-6754-495F-9118-A32B3E597855}.Default|Default.ActiveCfg = Default
+		{B9598D1A-8CFD-40AB-8788-9842B59723EB}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71984357-1E96-420B-8105-8B6FD555A05F}
+	EndGlobalSection
+EndGlobal
