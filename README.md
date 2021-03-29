@@ -2,8 +2,10 @@
 Personal Project to become familiar with TSQL and C#
 
 Startup Configuration Technologies used:
+
   -Dapper
     -tool to help assist in mapping my data
+    
   -Caliburn
     -library to help implement MVVM
 
