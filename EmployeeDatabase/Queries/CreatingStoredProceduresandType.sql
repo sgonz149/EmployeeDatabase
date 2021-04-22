@@ -24,6 +24,16 @@ AS
 		[dbo].[Company]
 GO
 
+-- to get Employees, to get Company of employee 
+CREATE PROCEDURE [dbo].[Profile_GetList]
+AS
+	SELECT
+		EmployeeId,
+		CompanyId
+	FROM
+		[dbo].[Employee]
+GO
+
 --create type and user defined data table for upsert to add employees and company
 -- our ui/form will be able to pass in this type of table
 -- then it will be passed into the upsert procedure and confirm if it needs to be updated

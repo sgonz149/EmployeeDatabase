@@ -27,6 +27,16 @@ CREATE TABLE [dbo].[Company] (
 	FOREIGN KEY (EmployeeId) REFERENCES Employee(EmployeeId)
 );
 
+--Company table for Company info relating to employee
+CREATE TABLE [dbo].[Profiles] (
+	ProfilesId INT IDENTITY(1,1) NOT NULL,
+	EmployeeId INT NOT NULL,
+	CompanyId INT NOT NULL,
+	PRIMARY KEY (ProfilesId),
+	FOREIGN KEY (EmployeeId) REFERENCES Employee(EmployeeId),
+	FOREIGN KEY (CompanyId) REFERENCES Company(CompanyId)
+);
+
 --Making corrections to tables for data transfer from csv
 ALTER TABLE [dbo].[Employee] ALTER COLUMN FirstName NVARCHAR (50) Not Null;
 ALTER TABLE [dbo].[Employee] ALTER COLUMN LastName NVARCHAR (50) Not Null;
@@ -37,7 +47,12 @@ ALTER TABLE [dbo].[Company] ALTER COLUMN CompanyName NVARCHAR (50) Not Null;
 ALTER TABLE [dbo].[Company] ADD CompanyId INT IDENTITY( 1, 1);
 ALTER TABLE [dbo].[Company] ALTER COLUMN "State" NVARCHAR (50) Not Null;
 
-DROP TABLE [dbo].Company;
+
+INSERT INTO [dbo].[Profiles]
+SELECT CompanyId, EmployeeId FROM [dbo].[Company];
+
+
+DROP TABLE [dbo].Profiles;
 
 
 DELETE FROM Employee;
