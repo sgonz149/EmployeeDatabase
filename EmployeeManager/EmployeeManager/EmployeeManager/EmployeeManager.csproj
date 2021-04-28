@@ -72,7 +72,10 @@
     </ApplicationDefinition>
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
+    <Compile Include="Repository\CompanyCommand.cs" />
     <Compile Include="Repository\EmployeeCommand.cs" />
+    <Compile Include="Repository\ProfileCommand.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="App.xaml.cs">

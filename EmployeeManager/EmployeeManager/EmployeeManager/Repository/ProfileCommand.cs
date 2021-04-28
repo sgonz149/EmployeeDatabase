@@ -26,7 +26,7 @@ namespace EmployeeManager.Repository
         {
             List<ProfileModel> profiles = new List<ProfileModel>();
 
-            var sql = "Profiles_GetList";
+            var sql = "Profile_GetList";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -49,14 +49,14 @@ namespace EmployeeManager.Repository
             //user defined table
             var dataTable = new DataTable();
 
-            dataTable.Columns.Add("ProfileId", typeof(int));
+            dataTable.Columns.Add("ProfilesId", typeof(int));
             dataTable.Columns.Add("EmployeeId", typeof(int));
             dataTable.Columns.Add("CompanyId", typeof(int));
-            dataTable.Rows.Add(profileModel.ProfileId, profileModel.EmployeeId, profileModel.CompanyId);
+            dataTable.Rows.Add(profileModel.ProfilesId, profileModel.EmployeeId, profileModel.CompanyId);
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                connection.Execute(sql, new { @EmployeeType = dataTable.AsTableValuedParameter("EmplyeeType"), @EmployeeId = employeeId }, commandType: CommandType.StoredProcedure);
+                connection.Execute(sql, new { @EmployeeType = dataTable.AsTableValuedParameter("EmployeeType")}, commandType: CommandType.StoredProcedure);
             }
         }
     }

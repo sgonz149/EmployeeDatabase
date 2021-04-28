@@ -15,7 +15,5 @@ namespace EmployeeManager.Models
         public string LastName { get; set; }
 
         public string JobTitle { get; set; }
-
-        public bool IsCommitted { get; set; }
     }
 }

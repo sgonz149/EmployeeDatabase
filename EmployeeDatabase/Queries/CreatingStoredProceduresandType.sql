@@ -28,10 +28,11 @@ GO
 CREATE PROCEDURE [dbo].[Profile_GetList]
 AS
 	SELECT
+		ProfilesId,
 		EmployeeId,
 		CompanyId
 	FROM
-		[dbo].[Employee]
+		[dbo].[Profiles]
 GO
 
 --create type and user defined data table for upsert to add employees and company
@@ -39,9 +40,9 @@ GO
 -- then it will be passed into the upsert procedure and confirm if it needs to be updated
 CREATE TYPE [dbo].[EmployeeType] AS TABLE
 (
-	[EmployeeId] INT NOT NULL
-	
-
+	[ProfilesId] INT NOT NULL,
+	[EmployeeId] INT NOT NULL,
+	[CompanyId] INT NOT NULL
 
 );
 GO
@@ -53,12 +54,15 @@ CREATE PROCEDURE [dbo].[Employee_Upsert]
 	-- @UserId VARCHAR(50)
 AS
 	-- information pulled from employee table using parameters from user defined table
-	MERGE INTO [dbo].[Company] TARGET
+	MERGE INTO [dbo].[Profiles] TARGET
 	USING
 	(
 		-- select from user defined table
 		SELECT
-			[EmployeeId]
+			[ProfilesId],
+			[EmployeeId],
+			[CompanyId]
+			
 			
 		FROM
 			@EmployeeType
@@ -68,23 +72,32 @@ AS
 	AS SOURCE
 	ON
 	(
-			TARGET.[EmployeeId] = SOURCE.[EmployeeId]
+			TARGET.ProfilesId = SOURCE.ProfilesId
 	)
 	-- when matched just update the ids
 	WHEN MATCHED THEN
 		UPDATE SET
-			TARGET.[EmployeeId] = SOURCE.[EmployeeId]
+			TARGET.[EmployeeId] = SOURCE.[EmployeeId],
+			TARGET.[CompanyId] = SOURCE.[CompanyId]
 			
 	-- if data is not found in  table then insert new data
 	WHEN NOT MATCHED BY TARGET THEN
 		INSERT (
-			[EmployeeId]
+			[EmployeeId],
+			[CompanyId]
 			
 		
 		)
 		VALUES (
-			SOURCE.[EmployeeId]
-		
+			SOURCE.[EmployeeId],
+			SOURCE.[CompanyId]
 		
 		);
 GO
+
+DROP PROCEDURE Employee_Upsert;
+GO
+DROP TYPE EmployeeType;
+GO
+
+select * FROM Profiles;

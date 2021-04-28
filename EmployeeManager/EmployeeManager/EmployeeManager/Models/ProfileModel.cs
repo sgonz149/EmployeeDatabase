@@ -8,10 +8,10 @@ namespace EmployeeManager.Models
 {
     class ProfileModel
     {
-        public int ProfileId { get; set; }
+        public int ProfilesId { get; set; }
         public int EmployeeId { get; set; }
 
-        public int CompanyId { get; set; }
+        public int CompanyId { get; set;}
 
         public bool IsCommitted { get; set; }
     }
