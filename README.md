@@ -10,8 +10,9 @@ Startup Configuration Technologies used:
     -library to help implement MVVM
 
 Framework
-  - .NET Framework WPF App
-Languages
-  - C#, T-SQL, XAML
+  - .NET Framework WPF App  
+  
+Languages  
+  - C#, T-SQL, XAML  
 
 Purpose: Store Employee information and have UI to pull data and update or add new employee information using existing info. 
