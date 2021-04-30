@@ -53,6 +53,7 @@ SELECT CompanyId, EmployeeId FROM [dbo].[Company];
 
 
 DROP TABLE [dbo].Profiles;
+DROP TABLE [dbo].Company;
 
 
 DELETE FROM Employee;

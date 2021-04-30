@@ -1,5 +1,5 @@
 # EmployeeDatabase
-Personal Project to become familiar with TSQL and C#
+Personal Project to become familiar with T-SQL and C#
 
 Startup Configuration Technologies used:
 
@@ -9,8 +9,9 @@ Startup Configuration Technologies used:
   -Caliburn
     -library to help implement MVVM
 
-Purpose: Store Employee information and have UI to pull data and update or add employee information
+Framework
+  - .NET Framework WPF App
+Languages
+  - C#, T-SQL, XAML
 
-
-
-Readme will be updated as project progresses 
+Purpose: Store Employee information and have UI to pull data and update or add new employee information using existing info. 
